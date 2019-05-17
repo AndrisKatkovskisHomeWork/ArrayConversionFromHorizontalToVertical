@@ -1,0 +1,43 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayConversionFromHorizontalToVertical();
+    }
+
+    public static void ArrayConversionFromHorizontalToVertical() {
+        int givenArray[][] = {{10, 20, 30, 99, 59}, {40, 50, 60, 80, 5}};
+        int rows = givenArray.length;
+        int columns = givenArray[0].length;
+        int[][] finalArray = new int[columns][rows];
+
+        System.out.println("Given Array with " + rows + " rows and " + columns + " columns:");
+        printArray(columns, rows, givenArray);
+
+        System.out.println("Empty new Array with " + columns + " rows and " + rows + " columns:");
+        printArray(rows, columns, finalArray);
+
+        convertArray(columns, rows, finalArray, givenArray);
+
+        System.out.println("\nFinal converted secondArray: ");
+        printArray(rows, columns, finalArray);
+    }
+
+    public static void printArray(int rows, int columns, int Array[][]) {
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < rows; j++) {
+                System.out.print(Array[i][j] + "| ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void convertArray(int columns, int rows, int finalArray[][], int givenArray[][]) {
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < rows; j++) {
+                finalArray[i][j] = givenArray[j][i];
+            }
+        }
+    }
+}
